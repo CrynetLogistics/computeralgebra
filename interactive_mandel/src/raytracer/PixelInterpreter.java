@@ -36,7 +36,7 @@ public class PixelInterpreter extends JPanel {
 												zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
 				}else if(mode==20){
 					map[i][j] = new PowerPixel(zoom.getCentreX()+(i-xSize/2)*zoom.getSampleInterval(),
-							zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
+											   zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
 				}else{
 					map[i][j] = new JuliaPixel(zoom.getCentreX()+(i-xSize/2)*zoom.getSampleInterval(),
 											   zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());

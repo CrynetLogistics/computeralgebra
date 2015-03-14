@@ -13,7 +13,8 @@ public class PowerPixel extends ScreenPixel {
 	private double C_X = 0;
 	private double C_Y = 0;
 	
-	private double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
+	////////////////////////////////////////////////
+	private double THRESHOLD_TO_TAKE_AS_INFINITY = 1000000000;
 
 	private int numberOfIterations;
 	
