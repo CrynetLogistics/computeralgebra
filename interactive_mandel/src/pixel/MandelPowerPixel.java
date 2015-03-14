@@ -2,23 +2,16 @@ package pixel;
 
 import math.ComplexPower;
 
-public class PowerPixel extends ScreenPixel {
+public class MandelPowerPixel extends ScreenPixel {
 
 	double xPos;
 	double yPos;
-	
-	private double X_00 = 0;
-	private double Y_00 = 0;
-	
-	private double C_X = 0;
-	private double C_Y = 0;
-	
-	////////////////////////////////////////////////
-	private double THRESHOLD_TO_TAKE_AS_INFINITY = 1000000000;
+
+	private double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
 
 	private int numberOfIterations;
 	
-	public PowerPixel(double xPos, double yPos, int numberOfIterations){
+	public MandelPowerPixel(double xPos, double yPos, int numberOfIterations){
 		this.xPos = xPos;
 		this.yPos = yPos;
 		this.numberOfIterations = numberOfIterations;
@@ -28,11 +21,9 @@ public class PowerPixel extends ScreenPixel {
 		double x=a,y=b,xt,yt;
 		ComplexPower cp;
 		for(int i=0;i<iterations;i++){
-			cp = new ComplexPower(x,y,a,b);
-			xt = cp.realPower() + X_00;
-			yt = cp.imagPower() + Y_00;
-			//xt = reSquareC(x,y)+X_00;
-			//yt = imSquareC(x,y)+Y_00;
+			cp = new ComplexPower(x,y,0,2);
+			xt = cp.realPower() + a;
+			yt = cp.imagPower() + b;
 
 			x = xt;
 			y = yt;
@@ -52,22 +43,6 @@ public class PowerPixel extends ScreenPixel {
 	
 	public double findMagnitude(double a,double b){
 		return Math.sqrt(a*a+b*b);
-	}
-	
-	public double imSquareC(double a,double b){
-		return 2*a*b;
-	}
-	
-	public double reSquareC(double a,double b){
-		return a*a-b*b;
-	}
-	
-	public double imCubeC(double a, double b){
-		return b*(3*a*a-b*b);
-	}
-	
-	public double reCubeC(double a, double b){
-		return a*(a*a-3*b*b);
 	}
 	
 }

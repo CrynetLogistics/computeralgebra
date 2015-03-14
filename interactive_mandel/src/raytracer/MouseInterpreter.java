@@ -17,7 +17,7 @@ public class MouseInterpreter extends MouseAdapter {
 		int j = e.getY();
 		
 		System.out.println(zoom.getCentreX()+(i-zoom.getXSize()/2)*zoom.getSampleInterval());
-		System.out.println(zoom.getCentreY()+(j-zoom.getYSize()/2)*zoom.getSampleInterval());
+		System.out.println(-1*(zoom.getCentreY()+(j-zoom.getYSize()/2)*zoom.getSampleInterval()));
 	}
 	
 }

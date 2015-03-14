@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import pixel.ActualPixel;
 import pixel.JuliaPixel;
+import pixel.MandelPowerPixel;
 import pixel.Pixel;
 import pixel.PowerPixel;
 import pixel.ScreenPixel;
@@ -37,6 +38,9 @@ public class PixelInterpreter extends JPanel {
 				}else if(mode==20){
 					map[i][j] = new PowerPixel(zoom.getCentreX()+(i-xSize/2)*zoom.getSampleInterval(),
 											   zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
+				}else if(mode==30){
+					map[i][j] = new MandelPowerPixel(zoom.getCentreX()+(i-xSize/2)*zoom.getSampleInterval(),
+							   				   		 zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
 				}else{
 					map[i][j] = new JuliaPixel(zoom.getCentreX()+(i-xSize/2)*zoom.getSampleInterval(),
 											   zoom.getCentreY()+(j-ySize/2)*zoom.getSampleInterval(), zoom.getNumberOfIterations());
@@ -59,11 +63,11 @@ public class PixelInterpreter extends JPanel {
 		int colourIndex;
 		for(int i=0;i<xSize;i++){
 			for(int j=0;j<ySize;j++){
-				if(mode==0||mode==10||mode==20){
+				if(mode<100){
 					colourIndex = (int)map[i][j].getIndex(1785)-254;
 					g.setColor(new Color(indexToRed(colourIndex), indexToGreen(colourIndex), indexToBlue(colourIndex)));
 					pixelsOfFractal.setColor(new Color(indexToRed(colourIndex), indexToGreen(colourIndex), indexToBlue(colourIndex)));
-				}else if(mode==1){
+				}else{
 					colourIndex = (int)map[i][j].getIndex(255);
 					g.setColor(new Color(colourIndex%255,0,0));
 				}

@@ -6,19 +6,30 @@ public class start {
 	private static double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
 	
 	public static void main(String[] args) {
+		///////////////////////////////////////////////DO THIS FOR CUBES AND HIGHER AND LOWER POWERS AND COMPLEX POWERS
 		for(int i=0;i<20;i++){
 			double epsilon = Math.pow(2, -1*i);
 			System.out.println(epsilon*isConvergentWithin(-0.75,epsilon,1000000000));
 		}
-		
+		System.out.println("___________________________________________________________");
 		for(int i=0;i<20;i++){
 			double epsilon = Math.pow(2, -1*i);
 			System.out.println(Math.sqrt(epsilon)*isConvergentWithin(0.25+epsilon,0,1000000000));
 		}
-		
-		for(int i=0;i<30;i++){
+		System.out.println("___________________________________________________________");
+		for(int i=0;i<20;i++){
 			double epsilon = Math.pow(2, -1*i);
-			System.out.println(epsilon*isConvergentWithin(-1.3681,epsilon,1000000000));
+			System.out.println(epsilon*isConvergentWithin(-0.75,-1*epsilon,1000000000));
+		}
+		System.out.println("___________________________________________________________");
+		for(int i=0;i<15;i++){
+			double epsilon = Math.pow(3, -1*i);
+			System.out.println(epsilon*isConvergentWithin(-1.25,-1*epsilon,1000000000));
+		}
+		System.out.println("___________________________________________________________");
+		for(int i=0;i<15;i++){
+			double epsilon = Math.pow(3, -1*i);
+			System.out.println(epsilon*isConvergentWithin(-1.25,epsilon,1000000000));
 		}
 	}
 	
