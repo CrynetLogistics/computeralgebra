@@ -82,6 +82,8 @@ public class KeyboardInterpreter extends KeyAdapter {
 			System.out.println("who knows?!");
 		}
 		PixelInterpreter s = new PixelInterpreter(xSize,ySize,f,zoom,mode);
+		zoom.setXSize(xSize);///////////////
+		zoom.setYSize(ySize);///////////////
 		f.setFocusable(true);
 		//f.revalidate();
 		f.add(s);
