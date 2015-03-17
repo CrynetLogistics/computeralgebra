@@ -69,9 +69,9 @@ public class KeyboardInterpreter extends KeyAdapter {
 			xSize = 1920;
 			ySize = 1080;
 		}else if(e.getKeyChar()=='3'){
-			System.out.println("640*360 mode");
-			xSize = 640;
-			ySize = 360;
+			System.out.println("960*540 mode");
+			xSize = 960;
+			ySize = 540;
 		}else if(e.getKeyChar()=='x'){
 			System.out.println("POWER OVERRIDE");
 			xSize = 2500;

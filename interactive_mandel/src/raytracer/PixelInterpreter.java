@@ -56,17 +56,12 @@ public class PixelInterpreter extends JPanel {
 	}
 	
 	public void drawLoop(Graphics g){
-		BufferedImage theFractal = new BufferedImage(xSize, ySize, BufferedImage.TYPE_INT_RGB);////////
-		Graphics2D pixelsOfFractal = theFractal.createGraphics();///////////////
-		
-		
 		int colourIndex;
 		for(int i=0;i<xSize;i++){
 			for(int j=0;j<ySize;j++){
 				if(mode<100){
 					colourIndex = (int)map[i][j].getIndex(1785)-254;
 					g.setColor(new Color(indexToRed(colourIndex), indexToGreen(colourIndex), indexToBlue(colourIndex)));
-					pixelsOfFractal.setColor(new Color(indexToRed(colourIndex), indexToGreen(colourIndex), indexToBlue(colourIndex)));
 				}else{
 					colourIndex = (int)map[i][j].getIndex(255);
 					g.setColor(new Color(colourIndex%255,0,0));
