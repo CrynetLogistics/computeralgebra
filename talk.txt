@@ -1,0 +1,12 @@
+1-
+1a)What the colours and colour bands mean. So for low iterations, 
+all points that lie within a region of similar colour took the 
+same number of iterations to converge.
+1b)The reason why the bands are less evident in higher iterations
+is because the difference in colour of the different bands of
+colour is less evident as there are more iterations to represent
+in our colour space.
+1c)There are black regions in the centres of certain fractals,
+these represent locations where they are possibly divergent
+but takes longer than 7*255 iterations to diverge, and with more
+iterations, these black regions reduce in size.
