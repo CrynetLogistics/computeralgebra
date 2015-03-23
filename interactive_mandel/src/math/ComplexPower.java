@@ -15,11 +15,12 @@ public class ComplexPower {
 		double tau = theta*s;
 		
 		double phi = Math.atan2(expIm, expRe);
-		double psi = phi+(Math.PI/2);
+		double psi = phi+Math.PI/2;
 		
-		factor = Math.pow(Math.E, ro*Math.cos(phi)+tau*Math.cos(psi));
-		realPowerValue = factor*Math.cos(tau*Math.sin(psi)+ro*Math.sin(phi));
-		imagPowerValue = factor*Math.sin(tau*Math.sin(psi)+ro*Math.sin(phi));
+		factor = Math.exp(ro*Math.cos(phi)+tau*Math.cos(psi));
+		double comb = tau*Math.sin(psi)+ro*Math.sin(phi);
+		realPowerValue = factor*Math.cos(comb);
+		imagPowerValue = factor*Math.sin(comb);
 	}
 	
 	public double realPower(){
