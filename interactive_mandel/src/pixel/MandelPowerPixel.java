@@ -8,8 +8,8 @@ public class MandelPowerPixel extends ScreenPixel {
 	double yPos;
 
 	private double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
-	private double POWER_REAL_PART = 3.1415926535897932384626;
-	private double POWER_IMAG_PART = 3.1415926535897932384626;
+	private double POWER_REAL_PART = 3;
+	private double POWER_IMAG_PART = 0;
 
 	private int numberOfIterations;
 	
