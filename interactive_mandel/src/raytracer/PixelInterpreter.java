@@ -1,15 +1,12 @@
 package raytracer;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
-import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
 import pixel.ActualPixel;
 import pixel.JuliaPixel;
 import pixel.MandelPowerPixel;
-import pixel.Pixel;
 import pixel.PowerPixel;
 import pixel.ScreenPixel;
 
@@ -17,7 +14,7 @@ public class PixelInterpreter extends JPanel {
 	
 	private int xSize;
 	private int ySize;
-	private Pixel[][] map;
+	private ScreenPixel[][] map;
 	private ZoomProperties zoom;
 	private int mode;
 	

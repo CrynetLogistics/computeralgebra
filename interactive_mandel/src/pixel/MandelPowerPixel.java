@@ -4,21 +4,15 @@ import math.ComplexPower;
 
 public class MandelPowerPixel extends ScreenPixel {
 
-	double xPos;
-	double yPos;
-
 	private double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
-	private double POWER_REAL_PART = 3;
-	private double POWER_IMAG_PART = 0;
-
-	private int numberOfIterations;
+	private double POWER_REAL_PART = 2;
+	private double POWER_IMAG_PART = 0.05;
 	
 	public MandelPowerPixel(double xPos, double yPos, int numberOfIterations){
-		this.xPos = xPos;
-		this.yPos = yPos;
-		this.numberOfIterations = numberOfIterations;
+		super(numberOfIterations, xPos, yPos);
 	}
 	
+	@Override
 	public int isConvergentWithin(double a, double b, int iterations, int maxIndex){
 		double x=a,y=b,xt,yt;
 		ComplexPower cp;
@@ -36,15 +30,5 @@ public class MandelPowerPixel extends ScreenPixel {
 			}
 		}
 		return -1;
-	}
-	
-	public double getIndex(int maxIndex){
-		int col = isConvergentWithin(xPos, yPos, numberOfIterations, maxIndex);
-		return col;
-	}
-	
-	public double findMagnitude(double a,double b){
-		return Math.sqrt(a*a+b*b);
-	}
-	
+	}	
 }

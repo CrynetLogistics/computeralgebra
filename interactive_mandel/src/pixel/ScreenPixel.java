@@ -1,34 +1,21 @@
 package pixel;
 
-public abstract class ScreenPixel implements Pixel {
+public abstract class ScreenPixel {
 
-	double xPos;
-	double yPos;
-	private double THRESHOLD_TO_TAKE_AS_INFINITY = 2;
-
-	public int isConvergentWithin(double a,double b,int iterations,int maxIndex){
-		double x=a,y=b,xt,yt;
-		for(int i=0;i<iterations;i++){
-			//mandelbrot set
-			xt = reSquareC(x,y)+a;
-			yt = imSquareC(x,y)+b;
-			
-			//other sets
-			//xt = reCubeC(x,y)+a;
-			//yt = imCubeC(x,y)+b;
-			
-			
-			x = xt;
-			y = yt;
-			
-			if(findMagnitude(x,y)>THRESHOLD_TO_TAKE_AS_INFINITY){
-				//change iterations as needed based on how close convergence strips should be
-				return (int)Math.floor(i*maxIndex/iterations);
-			}
-		}
-		// for convergence
-		return -1;
+	//position of the pixel
+	private double xPos;
+	private double yPos;
+	
+	//resolution of the pixel - the higher, the more accurate
+	private int numberOfIterations;
+	
+	public ScreenPixel(int numberOfIterations, double xPos, double yPos){
+		this.numberOfIterations = numberOfIterations;
+		this.xPos = xPos;
+		this.yPos = yPos;
 	}
+
+	public abstract int isConvergentWithin(double a,double b,int iterations,int maxIndex);
 	
 	public double findMagnitude(double a,double b){
 		return Math.sqrt(a*a+b*b);
@@ -50,4 +37,8 @@ public abstract class ScreenPixel implements Pixel {
 		return a*(a*a-3*b*b);
 	}
 	
+	public double getIndex(int maxIndex){
+		int col = isConvergentWithin(xPos, yPos, numberOfIterations, maxIndex);
+		return col;
+	}
 }
